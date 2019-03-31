@@ -79,16 +79,12 @@ def handle_message(event):
                 text= 'Tap the Button',
                 actions=[
                     MessageTemplateAction(
-                        label='Culum 1',
-                        text='/aditmadzs'
+                        label='Take Photo',
+                        text='/takephoto'
                     ),
                     MessageTemplateAction(
-                        label='CULUM 2',
-                        text='/aditmadzs'
-                    ),
-                    MessageTemplateAction(
-                        label='CULUM 3',
-                        text='/aditmadzs'
+                        label='Take Video',
+                        text='/takevideo'
                     )
                 ]
             )
