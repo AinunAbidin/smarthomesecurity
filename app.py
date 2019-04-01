@@ -69,7 +69,7 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text="Bot can't leave from 1:1 chat"))
 #=====[ TEMPLATE MESSAGE ]=============
-    elif text == '/template':
+    elif text == 'template':
         buttons_template = TemplateSendMessage(
             alt_text='template',
             template=ButtonsTemplate(
@@ -78,11 +78,11 @@ def handle_message(event):
                 actions=[
                     MessageTemplateAction(
                         label='Take Photo',
-                        text='/takephoto'
+                        text='takephoto'
                     ),
                     MessageTemplateAction(
                         label='Take Video',
-                        text='/takevideo'
+                        text='takevideo'
                     )
                 ]
             )
