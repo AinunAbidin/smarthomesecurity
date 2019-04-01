@@ -1,8 +1,5 @@
 from flask import Flask, request, abort
 
-from picamera import PiCamera
-from time import sleep
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -39,9 +36,6 @@ line_bot_api = LineBotApi('h4A/0EsqXaNhrkUTvd5GrtIle2lu65p0j79t6nEpt70ZBKEUfYBCC
 handler = WebhookHandler('aa374d45e8f358df5be55b2c54525695')
 #===========[ NOTE SAVER ]=======================
 notes = {}
-
-camera = PiCamera()
-camera.resolution = (1366,768)
 
 # Post Request
 @app.route("/callback", methods=['POST'])
@@ -93,22 +87,9 @@ def handle_message(event):
                 ]
             )
         )
-
-       	line_bot_api.reply_message(event.reply_token, buttons_template)
-
-    elif text == 'takephoto':
-        camera.start_preview()
-        sleep(5)
-        camera.capture('/coba/test.jpg')
-        camera.stop_preview()
-        url = request.url_root + '/coba/test.jpg'
-        app.logger.info("url=" + url)
-        line_bot_api.reply_message(
-            event.reply_token,
-            ImageSendMessage(url, url)
-        )
-#=====[ CAROUSEL MESSAGE ]==========
-    elif text == '/carousel':
+        
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+#=====[ CAROUSEL MESSAGE ]==========    elif text == '/carousel':
         message = TemplateSendMessage(
             alt_text='OTHER MENU',
             template=CarouselTemplate(
