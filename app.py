@@ -9,7 +9,6 @@ from linebot.exceptions import (
 from linebot.models import *
 import requests, json
 
-
 import errno
 import os
 import sys, random
@@ -29,7 +28,6 @@ from linebot.models import (
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
     SeparatorComponent,
 )
-
 app = Flask(__name__)
 
 # Channel Access Token
@@ -75,7 +73,7 @@ def handle_message(event):
         buttons_template = TemplateSendMessage(
             alt_text='template',
             template=ButtonsTemplate(
-                title='[ TEMPLATE MSG ]',
+                title='Choose The Option',
                 text= 'Tap the Button',
                 actions=[
                     MessageTemplateAction(
