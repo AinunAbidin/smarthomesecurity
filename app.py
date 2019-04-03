@@ -95,18 +95,6 @@ def handle_message(event):
         )
 
        	line_bot_api.reply_message(event.reply_token, buttons_template)
-
-    elif text == 'takephoto':
-        camera.start_preview()
-        sleep(5)
-        camera.capture('/coba/test.jpg')
-        camera.stop_preview()
-        url = request.url_root + '/coba/test.jpg'
-        app.logger.info("url=" + url)
-        line_bot_api.reply_message(
-            event.reply_token,
-            ImageSendMessage(url, url)
-        )
 #=====[ CAROUSEL MESSAGE ]==========
     elif text == '/carousel':
         message = TemplateSendMessage(
