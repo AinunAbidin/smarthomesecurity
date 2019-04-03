@@ -1,8 +1,5 @@
 from flask import Flask, request, abort
 
-from picamera import PiCamera
-from time import sleep
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -11,6 +8,7 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 import requests, json
+
 
 import errno
 import os
@@ -31,6 +29,7 @@ from linebot.models import (
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
     SeparatorComponent,
 )
+
 app = Flask(__name__)
 
 # Channel Access Token
@@ -39,9 +38,6 @@ line_bot_api = LineBotApi('h4A/0EsqXaNhrkUTvd5GrtIle2lu65p0j79t6nEpt70ZBKEUfYBCC
 handler = WebhookHandler('aa374d45e8f358df5be55b2c54525695')
 #===========[ NOTE SAVER ]=======================
 notes = {}
-
-camera = PiCamera()
-camera.resolution = (1366,768)
 
 # Post Request
 @app.route("/callback", methods=['POST'])
@@ -75,7 +71,7 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text="Bot can't leave from 1:1 chat"))
 #=====[ TEMPLATE MESSAGE ]=============
-    elif text == 'template':
+    elif text == 'Template':
         buttons_template = TemplateSendMessage(
             alt_text='template',
             template=ButtonsTemplate(
@@ -83,18 +79,18 @@ def handle_message(event):
                 text= 'Tap the Button',
                 actions=[
                     MessageTemplateAction(
-                        label='Take Photo',
-                        text='takephoto'
+                        label='Take Video',
+                        text='TakeVideo'
                     ),
                     MessageTemplateAction(
-                        label='Take Video',
-                        text='takevideo'
+                        label='Take Foto',
+                        text='TakeFoto'
                     )
                 ]
             )
         )
-
-       	line_bot_api.reply_message(event.reply_token, buttons_template)
+        
+        line_bot_api.reply_message(event.reply_token, buttons_template)
 #=====[ CAROUSEL MESSAGE ]==========
     elif text == '/carousel':
         message = TemplateSendMessage(
