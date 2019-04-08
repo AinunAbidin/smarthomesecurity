@@ -57,7 +57,7 @@ def handle_message(event):
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
 #=====[ TEMPLATE MESSAGE ]=============
-    elif text == 'Template':
+    if text == 'Template':
         buttons_template = TemplateSendMessage(
             alt_text='template',
             template=ButtonsTemplate(
