@@ -56,20 +56,6 @@ def handle_message(event):
     text = event.message.text #simplify for receove message
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
-#=====[ LEAVE GROUP OR ROOM ]==========
-    if text == 'bye':
-        if isinstance(event.source, SourceGroup):
-            line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(text='Leaving group'))
-            line_bot_api.leave_group(event.source.group_id)
-        elif isinstance(event.source, SourceRoom):
-            line_bot_api.reply_message(
-                event.reply_token, TextSendMessage(text='Leaving group'))
-            line_bot_api.leave_room(event.source.room_id)
-        else:
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="Bot can't leave from 1:1 chat"))
 #=====[ TEMPLATE MESSAGE ]=============
     elif text == 'Template':
         buttons_template = TemplateSendMessage(
@@ -89,7 +75,6 @@ def handle_message(event):
                 ]
             )
         )
-        
         line_bot_api.reply_message(event.reply_token, buttons_template)
 #=====[ CAROUSEL MESSAGE ]==========
     elif text == '/carousel':
@@ -125,7 +110,6 @@ def handle_message(event):
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text="Berhasil"))
-        )
 
 #=====[ FLEX MESSAGE ]==========
     elif text == 'flex':
