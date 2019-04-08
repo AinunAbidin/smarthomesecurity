@@ -111,7 +111,7 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text="Berhasil"))
     elif text == 'TakeVideo':
-        url = request.url_root + '/home/pi/Desktop/nadyalulussekarang/coba/image.jpg'
+        url = request.url_root + 'image.jpg'
         app.logger.info("url=" + url)
         line_bot_api.reply_message(
             event.reply_token,
