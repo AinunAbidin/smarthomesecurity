@@ -110,6 +110,13 @@ def handle_message(event):
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text="Berhasil"))
+    elif text == 'TakeVideo':
+        url = request.url_root + '/coba/image.jpg'
+        app.logger.info("url=" + url)
+        line_bot_api.reply_message(
+            event.reply_token,
+            ImageSendMessage(url, url)
+        )
 
 #=====[ FLEX MESSAGE ]==========
     elif text == 'flex':
