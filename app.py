@@ -108,8 +108,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     elif text == 'TakeFoto':
         message = ImageSendMessage(
-          original_content_url='https://afinde-production.s3.amazonaws.com/uploads/23-times-patrick-star-was-your-drunk-spirit-animal-2-17648-1436286910-2_dblbig.jpg',
-          preview_image_url='https://afinde-production.s3.amazonaws.com/uploads/23-times-patrick-star-was-your-drunk-spirit-animal-2-17648-1436286910-2_dblbig.jpg')
+          original_content_url='http://192.168.0.5/photos/coba.jpg',
+          preview_image_url='http://192.168.0.5/photos/coba.jpg')
         #message = open("coba.jpg",'rb')
         line_bot_api.reply_message(
                 event.reply_token,
