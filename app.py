@@ -107,10 +107,10 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, message)
     elif text == 'TakeFoto':
-       # message = ImageSendMessage(
-        # original_content_url='/home/pi/Desktop/nadyalulussekarang/coba.jpg',
-         #preview_image_url='/home/pi/Desktop/nadyalulussekarang/coba.jpg')
-        message = open("coba.jpg",'rb')
+        message = ImageSendMessage(
+          original_content_url='@/home/pi/cam.jpg',
+          preview_image_url='@/home/pi/cam.jpg')
+        #message = open("coba.jpg",'rb')
         line_bot_api.reply_message(
                 event.reply_token,
                 message)
