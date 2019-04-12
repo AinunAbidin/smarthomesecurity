@@ -107,7 +107,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, message)
     elif text == 'TakeFoto':
-        message = ImageSendMessage(original_content_url='coba.jpg', preview_content_url='coba.jpg')
+        message = ImageSendMessage(original_content_url='https://animecosplayworld.files.wordpress.com/2011/06/patrick_star_by_ninjasaus.png', preview_content_url='https://animecosplayworld.files.wordpress.com/2011/06/patrick_star_by_ninjasaus.png')
         line_bot_api.reply_message(
                 event.reply_token,
                 message)
