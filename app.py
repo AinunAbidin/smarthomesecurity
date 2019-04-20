@@ -108,10 +108,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     elif text == 'TakeFoto':
         message = ImageSendMessage(
-          original_content_url='https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj-wqC1ld7hAhXJp48KHdWDCmwQjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPatrick_Star&psig=AOvVaw0vScEVT4Sqg0uXaBtD3oz5&ust=1555832379694589',
-          preview_image_url='https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj-wqC1ld7hAhXJp48KHdWDCmwQjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPatrick_Star&psig=AOvVaw0vScEVT4Sqg0uXaBtD3oz5&ust=1555832379694589')
-        #message = open("coba.jpg",'rb')
-        line_bot_api.reply_message(
+          original_content_url='https://data.whicdn.com/images/129692001/original.jpg',
+          preview_image_url='https://data.whicdn.com/images/129692001/original.jpg')
+             line_bot_api.reply_message(
                 event.reply_token,
                 message)
     elif text == 'TakeVideo':
