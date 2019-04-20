@@ -31,7 +31,7 @@ from linebot.models import (
 )
 
 app = Flask(__name__)
-
+app = Flask(__name__, static_url_path = "/coba", static_folder = "coba")
 # Channel Access Token
 line_bot_api = LineBotApi('h4A/0EsqXaNhrkUTvd5GrtIle2lu65p0j79t6nEpt70ZBKEUfYBCCzsK9dwv+WIx0TpEM8n9YTrOBcP3ifRfWp/AnqEnTCv/6o/yUAoQNXUsuh7qMSjsVbX5j4i3uP7mS7SanV4kCf9XAJu2zDXT4wdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
@@ -108,8 +108,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     elif text == 'TakeFoto':
         message = ImageSendMessage(
-          original_content_url='https://data.whicdn.com/images/129692001/original.jpg',
-          preview_image_url='https://data.whicdn.com/images/129692001/original.jpg')
+          original_content_url='/coba/image.jpg',
+          preview_image_url='/coba/image.jpg')
         line_bot_api.reply_message(
                 event.reply_token,
                 message)
