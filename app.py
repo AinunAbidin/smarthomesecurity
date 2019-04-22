@@ -55,6 +55,20 @@ def handle_message(event):
     text = event.message.text #simplify for receove message
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
+from time import sleep
+import RPi.GPIO as GPIO
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.IN)
+while True:
+    i=GPIO.input(11)
+    if i==0:
+        print(i)
+        time.sleep(0.1)
+    elif i==1:
+        message = TextSendMessage(text='Hello, world')
+	line_bot_api.reply_message(event.reply_token, message)
+        time.sleep(0.1)
 #=====[ TEMPLATE MESSAGE ]=============
     if text == 'Template':
         buttons_template = TemplateSendMessage(
