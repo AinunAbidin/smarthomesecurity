@@ -9,7 +9,6 @@ from linebot.exceptions import (
 from linebot.models import *
 import requests, json
 
-
 import errno
 import os
 import sys, random
@@ -108,10 +107,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     elif text == 'TakeFoto':
         message = ImageSendMessage(
-          camera =  PiCamera()
-          camera.start_preview()
-          camera.resolution = (1080,720)
-          camera.capture('/home/pi/Desktop/nadyalulussekarang/coba/image.jpg')
           original_content_url='https://nadyalulussekarang.herokuapp.com/coba/image.jpg',
           preview_image_url='https://nadyalulussekarang.herokuapp.com/coba/image.jpg')
         line_bot_api.reply_message(
