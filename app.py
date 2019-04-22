@@ -41,7 +41,6 @@ notes = {}
 
 # Post Request
 @app.route("/callback", methods=['POST'])
-def callback
 def callback():
     signature = request.headers['X-Line-Signature']
     body = request.get_data(as_text=True)
