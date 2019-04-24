@@ -67,7 +67,7 @@ while True:
         time.sleep(0.1)
     elif i==1:
         message = TextSendMessage(text='Hello, world')
-	line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token,message)
         time.sleep(0.1)
 #=====[ TEMPLATE MESSAGE ]=============
     if text == 'Template':
