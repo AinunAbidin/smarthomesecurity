@@ -13,7 +13,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.IN)
 from linebot.models import *
 import requests, json
-
+import time
 import errno
 import os
 import sys, random
