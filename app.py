@@ -47,7 +47,7 @@ handler = WebhookHandler('aa374d45e8f358df5be55b2c54525695')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 def take_photo():
-        camera.capture('/coba/image.jpg')
+        camera.capture('/home/pi/Desktop/nadyalulussekarang/coba')
 # Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -241,7 +241,6 @@ def handle_message(event):
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
     while True:
     	i=GPIO.input(11)
     	if i==0:
@@ -250,6 +249,7 @@ if __name__ == "__main__":
     	elif i==1:
         	print("Motion Detect")
         	print(take_photo())
+        	app.run(host='0.0.0.0', port=port)
         	#print(send_message())
         	time.sleep(0.1)
 
