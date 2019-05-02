@@ -47,7 +47,7 @@ handler = WebhookHandler('aa374d45e8f358df5be55b2c54525695')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 def take_photo():
-        camera.capture('/home/pi/Desktop/nadyalulussekarang/coba')
+        camera.capture('/home/pi/Desktop/nadyalulussekarang/coba/image.jpg')
 # Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
