@@ -13,6 +13,15 @@ import errno
 import os
 import sys, random
 import tempfile
+import time
+import RPi.GPIO as GPIO
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.IN)
+
+from picamera import PiCamera
+camera = PiCamera()
+camera.resolution = (640,480)
 
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
@@ -240,7 +249,7 @@ if __name__ == "__main__":
         	time.sleep(0.1)
     	elif i==1:
         	print("Motion Detect")
-        	#print(take_photo())
+        	print(take_photo())
         	#print(send_message())
         	time.sleep(0.1)
 
