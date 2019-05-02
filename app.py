@@ -37,7 +37,8 @@ line_bot_api = LineBotApi('h4A/0EsqXaNhrkUTvd5GrtIle2lu65p0j79t6nEpt70ZBKEUfYBCC
 handler = WebhookHandler('aa374d45e8f358df5be55b2c54525695')
 #===========[ NOTE SAVER ]=======================
 notes = {}
-
+def take_photo():
+        camera.capture('/coba/image.jpg')
 # Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -232,3 +233,14 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+    while True:
+    	i=GPIO.input(11)
+    	if i==0:
+        	print(i)
+        	time.sleep(0.1)
+    	elif i==1:
+        	print("Motion Detect")
+        	#print(take_photo())
+        	#print(send_message())
+        	time.sleep(0.1)
+
