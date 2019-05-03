@@ -15,9 +15,6 @@ import sys, random
 import tempfile
 import time
 
-from picamera import PiCamera
-camera = PiCamera()
-camera.resolution = (640,480)
 
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
@@ -239,6 +236,10 @@ import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.IN)
+from picamera import PiCamera
+camera = PiCamera()
+camera.resolution = (640,480)
+
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
