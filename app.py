@@ -15,13 +15,13 @@ import sys, random
 import tempfile
 import time
 
-import RPi.GPIO as GPIO
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.IN)
-from picamera import PiCamera
-camera = PiCamera()
-camera.resolution = (640,480)
+#import RPi.GPIO as GPIO
+#GPIO.setwarnings(False)
+#GPIO.setmode(GPIO.BOARD)
+#GPIO.setup(11, GPIO.IN)
+#from picamera import PiCamera
+#camera = PiCamera()
+#camera.resolution = (640,480)
 
 
 from linebot.models import (
@@ -66,15 +66,6 @@ def handle_message(event):
     text = event.message.text #simplify for receove message
     sender = event.source.user_id #get user_id
     gid = event.source.sender_id #get group_id
-#while True:
- #   i=GPIO.input(11)
-  #  if i==0:
-   #     print(i)
-    #    time.sleep(0.1)
-   # elif i==1:
-    #    message = TextSendMessage(text='Hello, world')
-     #   line_bot_api.reply_message(event.reply_token,message)
-      #  time.sleep(0.1)
 #=====[ TEMPLATE MESSAGE ]=============
     if text == 'Template':
         buttons_template = TemplateSendMessage(
@@ -245,14 +236,14 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-    while True:
-    	i=GPIO.input(11)
-    	if i==0:
-        	print(i)
-        	time.sleep(0.1)
-    	elif i==1:
-        	print("Motion Detect")
-        	take_photo()
-        	#print(send_message())
-        	time.sleep(0.1)
+ #   while True:
+ #   	i=GPIO.input(11)
+ #   	if i==0:
+ #       	print(i)
+ #       	time.sleep(0.1)
+ #   	elif i==1:
+ #       	print("Motion Detect")
+ #       	take_photo()
+ #       	#print(send_message())
+ #       	time.sleep(0.1)
 
