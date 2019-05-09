@@ -248,5 +248,5 @@ if __name__ == "__main__":
         	#print("Motion Detect")
         	#take_photo()
         	#print(send_message())
-        	time.sleep(0.1)
+        	#time.sleep(0.1)
 
