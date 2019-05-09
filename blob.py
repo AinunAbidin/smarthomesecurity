@@ -53,3 +53,4 @@ def read_blob(part_id, path_to_dir):
     finally:
         if conn is not None:
             conn.close()
+    return blob
