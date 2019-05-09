@@ -120,9 +120,10 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, message)
     elif text == 'TakeFoto':
+	read_blob(1,"/coba")
         message = ImageSendMessage(
-          original_content_url=read_blob(1,''),
-          preview_image_url=read_blob(1,''))
+          original_content_url="https://nadyalulussekarang.herokuapp.com/coba/image.jpg",
+          preview_image_url="https://nadyalulussekarang.herokuapp.com/coba/image.jpg")
         line_bot_api.reply_message(
                 event.reply_token,
                 message)
@@ -239,6 +240,7 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+
    # while True:
     	#i=GPIO.input(11)
     	#if i==0:
