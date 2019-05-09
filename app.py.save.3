@@ -1,7 +1,5 @@
 from flask import Flask, request, abort
-from blob import (
-	write_blob,read_blob
-)
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -12,19 +10,18 @@ from linebot.models import *
 import requests, json
 
 import errno
-import psycopg2
 import os
 import sys, random
 import tempfile
 import time
 
-#import RPi.GPIO as GPIO
-#GPIO.setwarnings(False)
-#GPIO.setmode(GPIO.BOARD)
-#GPIO.setup(11, GPIO.IN)
-#from picamera import PiCamera
-#camera = PiCamera()
-#camera.resolution = (640,480)
+import RPi.GPIO as GPIO
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.IN)
+from picamera import PiCamera
+camera = PiCamera()
+camera.resolution = (640,480)
 
 
 from linebot.models import (
@@ -239,14 +236,14 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-   # while True:
-    	#i=GPIO.input(11)
-    	#if i==0:
-        	#print(i)
-        	#time.sleep(0.1)
-    	#elif i==1:
-        	#print("Motion Detect")
-        	#take_photo()
+    while True:
+    	i=GPIO.input(11)
+    	if i==0:
+        	print(i)
+        	time.sleep(0.1)
+    	elif i==1:
+        	print("Motion Detect")
+        	take_photo()
         	#print(send_message())
         	time.sleep(0.1)
 
