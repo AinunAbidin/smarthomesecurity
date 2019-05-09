@@ -120,7 +120,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, message)
     elif text == 'TakeFoto':
-	read_blob(1,"/coba")
+        read_blob(1,"/coba")
         message = ImageSendMessage(
           original_content_url="https://nadyalulussekarang.herokuapp.com/coba/image.jpg",
           preview_image_url="https://nadyalulussekarang.herokuapp.com/coba/image.jpg")
