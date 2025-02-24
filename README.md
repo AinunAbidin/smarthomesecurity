@@ -1,5 +1,3 @@
-## For install Tutorial [HERE](https://www.youtube.com/watch?v=tffqvyI_K3A)
-## Deploy to Heroku
 #Ganti token dan chanel screet mu! di file app.py
 ```python
 # Channel Access Token
@@ -260,5 +258,3 @@ message = TemplateSendMessage(
 )
 line_bot_api.reply_message(event.reply_token, message)
 ```
-# Thanks to
-- Arsybai
